@@ -1,11 +1,7 @@
 # atcoder_study
 
-```
-npx tsc -p <C:\git\atcoder_study\tsconfig.json> <C:\git\atcoder_study\src\index.ts>
+以下を参考に環境構築
 
-```
+[https://qiita.com/cosocaf/items/255003ecec1d3badfc7b](https://qiita.com/cosocaf/items/255003ecec1d3badfc7b)
 
-```
-node <出力されたファイルへのパス>
-
-```
+---
