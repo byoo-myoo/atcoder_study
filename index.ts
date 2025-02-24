@@ -1,28 +1,23 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require("fs").readFileSync("/dev/stdin", "utf8").trim();
+let numInput = Number(input);
 
-// 1行目: N, K を取得
-const [N, K] = input[0].split(" ").map(Number);
+let x = 1;
+while (x < numInput) {
+  x *= 2; // numInput 以上になるまで倍にする
+}
 
-// 2行目の A1, A2, ..., AN を取得
-const A = input[1].split(" ").map(Number);
-// 3行目の A1, A2, ..., AN を取得
-const B = input[2].split(" ").map(Number);
-
-let check = false;
-for (let i = 0; i < N; i++) {
-  const targetA = A[i];
-  for (let j = 0; j < N; j++) {
-    const targetB = B[j];
-    if (targetA + targetB === K) {
-      check = true;
-    }
+let bitNum = "";
+while (x >= 1) {
+  // x が 1 以上の間ループ
+  if (numInput >= x) {
+    numInput -= x;
+    bitNum += "1";
+  } else {
+    bitNum += "0";
   }
+  x /= 2;
 }
-if (check) {
-  console.log("Yes");
-} else {
-  console.log("No");
-}
+
+// 10桁に調整 (左側に0を埋める)
+bitNum = bitNum.padStart(10, "0").slice(-10);
+console.log(bitNum);
