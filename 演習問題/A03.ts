@@ -1,4 +1,5 @@
-const input = require("fs")
+export const A03 = () => {
+  const input = require("fs")
   .readFileSync("/dev/stdin", "utf8")
   .trim()
   .split("\n");
@@ -26,3 +27,4 @@ if (check) {
 } else {
   console.log("No");
 }
+};
