@@ -1,23 +1,21 @@
 const input = require("fs").readFileSync("/dev/stdin", "utf8").trim();
-let numInput = Number(input);
+const [S1, S2] = input.split(" ");
 
-let x = 1;
-while (x < numInput) {
-  x *= 2; // numInput 以上になるまで倍にする
-}
+const SICK = "sick";
+const FINE = "fine";
 
-let bitNum = "";
-while (x >= 1) {
-  // x が 1 以上の間ループ
-  if (numInput >= x) {
-    numInput -= x;
-    bitNum += "1";
+let out = 0;
+if (S1 === S2) {
+  if (S1 === SICK) {
+    out = 1;
   } else {
-    bitNum += "0";
+    out = 4;
   }
-  x /= 2;
+} else {
+  if (S1 === SICK) {
+    out = 2;
+  } else {
+    out = 3;
+  }
 }
-
-// 10桁に調整 (左側に0を埋める)
-bitNum = bitNum.padStart(10, "0").slice(-10);
-console.log(bitNum);
+console.log(out);
